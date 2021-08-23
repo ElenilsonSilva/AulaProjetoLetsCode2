@@ -33,7 +33,7 @@ namespace AulaProjetoLetsCode2
                      Console.WriteLine("222");
                     break;
                 case 3:
-                    client.AddClient();
+                    Console.WriteLine("333");
                     break;
                 case 4:
                     foreach (var usuario in users.Users)
