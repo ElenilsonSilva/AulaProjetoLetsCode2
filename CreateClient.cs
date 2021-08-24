@@ -4,10 +4,9 @@ using System.Linq;
 
 namespace AulaProjetoLetsCode2
 {
-
-    public class CreateClient : Client
+    public interface ICreateClient
     {
+        public void AddCliente();
         
-
     }
 }

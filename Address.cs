@@ -3,7 +3,7 @@ using System;
 
 namespace AulaProjetoLetsCode2
 {
-    public class Address
+    public interface IAddress
     {
         public string address { get; set; }
         public string secondAddress { get; set; }  

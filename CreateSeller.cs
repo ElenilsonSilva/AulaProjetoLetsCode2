@@ -2,13 +2,9 @@
 
 namespace AulaProjetoLetsCode2
 {
-    public abstract class CreateSeller
+    public interface ICreateSeller
     {
-        public CreateSeller()
-        {
-
-        }
-
+        public void AddSeller();
         
     }
 }

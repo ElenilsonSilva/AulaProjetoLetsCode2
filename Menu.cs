@@ -5,7 +5,6 @@ namespace AulaProjetoLetsCode2
     public class Menu
     {
         Create users = new Create();
-        CreateClient client = new CreateClient();
 
         public string GeneralMenu()
         {
@@ -16,7 +15,9 @@ namespace AulaProjetoLetsCode2
             Console.WriteLine("2 - Cadastrar novo Vendedor");
             Console.WriteLine("3 - Cadastrar novo Cliente");
             Console.WriteLine("4 - Listar Usuário");
-            Console.WriteLine("7 - Sair");
+            Console.WriteLine("5 - Listar Vendedor");
+
+            Console.WriteLine("6 - Sair");
             Console.Write("Opção: ");           
             return Console.ReadLine();
 
@@ -30,16 +31,29 @@ namespace AulaProjetoLetsCode2
                     GeneralMenuOption();
                     break;
                 case 2:
-                     Console.WriteLine("222");
+                    users.AddSeller();
+                    GeneralMenuOption();
                     break;
                 case 3:
                     Console.WriteLine("333");
                     break;
                 case 4:
+                    Console.WriteLine("   LISTA DE USUÁRIOS CADASTRADOS  \n");
                     foreach (var usuario in users.Users)
                     {
                         Console.WriteLine(usuario);
                     }
+                    GeneralMenuOption();
+                    break;
+                case 5:
+                    Console.WriteLine("   LISTA DE VENDEDORES CADASTRADOS  \n");
+                    foreach (var usuario in users.Sellers)
+                    {
+                        Console.WriteLine(usuario);
+                    }
+                    GeneralMenuOption();
+                    break;
+                case 6:
                     break;
                 default:
                     Console.WriteLine("Opção inválida");
