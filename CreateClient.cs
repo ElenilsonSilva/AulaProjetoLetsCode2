@@ -6,7 +6,7 @@ namespace AulaProjetoLetsCode2
 {
     public interface ICreateClient
     {
-        public void AddCliente();
-        
+        public void AddClient();
+
     }
 }

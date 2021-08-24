@@ -16,8 +16,8 @@ namespace AulaProjetoLetsCode2
             Console.WriteLine("3 - Cadastrar novo Cliente");
             Console.WriteLine("4 - Listar Usuário");
             Console.WriteLine("5 - Listar Vendedor");
-
-            Console.WriteLine("6 - Sair");
+            Console.WriteLine("6 - Listar Clientes");
+            Console.WriteLine("7 - Sair");
             Console.Write("Opção: ");           
             return Console.ReadLine();
 
@@ -35,7 +35,8 @@ namespace AulaProjetoLetsCode2
                     GeneralMenuOption();
                     break;
                 case 3:
-                    Console.WriteLine("333");
+                    users.AddClient();
+                    GeneralMenuOption();
                     break;
                 case 4:
                     Console.WriteLine("   LISTA DE USUÁRIOS CADASTRADOS  \n");
@@ -54,6 +55,14 @@ namespace AulaProjetoLetsCode2
                     GeneralMenuOption();
                     break;
                 case 6:
+                    Console.WriteLine("   LISTA DE CLIENTES CADASTRADOS  \n");
+                    foreach (var usuario in users.Clients)
+                    {
+                        Console.WriteLine(usuario);
+                    }
+                    GeneralMenuOption();
+                    break;
+                case 7:
                     break;
                 default:
                     Console.WriteLine("Opção inválida");

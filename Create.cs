@@ -4,17 +4,20 @@ using System.Linq;
 
 namespace AulaProjetoLetsCode2
 {
-    public class Create : User, ICreateSeller
+    public class Create : User, ICreateSeller, ICreateClient
     {
-        private List<Seller> _seller;
-        public IReadOnlyList<Seller> Sellers { get => _seller; }
         Perguntas perguntas = new Perguntas();
+        private List<Seller> _seller;
+        private List<Client> _client;
+        public IReadOnlyList<Seller> Sellers { get => _seller; }
+        public IReadOnlyList<Client> Clients { get => _client; }
         public IReadOnlyList<User> Users { get => _user; }
 
         public Create()
         {
             CarregaDadosDoUsuario();
             CarregaDadosDoSeller();
+            CarregaDadosDoClient();
         }
 
         private void CarregaDadosDoUsuario()
@@ -24,6 +27,10 @@ namespace AulaProjetoLetsCode2
         private void CarregaDadosDoSeller()
         {
             _seller = new List<Seller>();
+        }
+        private void CarregaDadosDoClient()
+        {
+            _client = new List<Client>();
         }
         public void AddUser()
         {
@@ -40,8 +47,8 @@ namespace AulaProjetoLetsCode2
         public void AddSeller()
         {
             var resposta2 = perguntas.Resposta2();
-            var a = ObterClientePeloUser(resposta2[0]);
-            if(a == null)
+            var nomeUser = ObterClientePeloUser(resposta2[0]);
+            if(nomeUser == null)
             {
                 Console.WriteLine("USUÁRIO NÃO CADASTRADO. PRIMEIRO REALIZE O CADASTRO DE USUÁRIO. \n\n");
             }
@@ -50,13 +57,35 @@ namespace AulaProjetoLetsCode2
                 _seller.Add(new Seller()
                 {
                     id = id++,
-                    name = a.name,
-                    user = a.user,
-                    password = a.password
+                    name = nomeUser.name,
+                    user = nomeUser.user,
+                    password = nomeUser.password
                 });
                 Console.WriteLine("CADASTRO CONFIRMADO. AGORA O USUÁRIO É UM VENDEDOR\n\n");
             }
         }
+
+        public void AddClient()
+        {
+            var resposta2 = perguntas.Resposta2();
+            var nomeUser = ObterClientePeloUser(resposta2[0]);
+            if (nomeUser == null)
+            {
+                Console.WriteLine("USUÁRIO NÃO CADASTRADO. PRIMEIRO REALIZE O CADASTRO DE USUÁRIO. \n\n");
+            }
+            else
+            {
+                _client.Add(new Client()
+                {
+                    id = id++,
+                    name = nomeUser.name,
+                    user = nomeUser.user,
+                    password = nomeUser.password
+                });
+                Console.WriteLine("CADASTRO CONFIRMADO. AGORA O USUÁRIO É UM CLIENTE\n\n");
+            }
+        }
+
         public User ObterClientePeloUser(string user)
         {
             return Users.FirstOrDefault(usuario => usuario.user == user);
