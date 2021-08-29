@@ -85,6 +85,13 @@ namespace AulaProjetoLetsCode2
                 Console.WriteLine("CADASTRO CONFIRMADO. AGORA O USUÁRIO É UM CLIENTE\n\n");
             }
         }
+        public void ListarUsers(IReadOnlyList<User> nome)
+        {
+            foreach (var usuario in nome)
+            {
+                Console.WriteLine($"  | Id: {usuario.id} | Nome: {usuario.name} | User: {usuario.user} |\n\n");
+            }
+        }
 
         public User ObterClientePeloUser(string user)
         {

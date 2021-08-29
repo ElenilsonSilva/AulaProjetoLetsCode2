@@ -30,12 +30,6 @@ namespace AulaProjetoLetsCode2
         public string user { get; set; } 
         public string password { get; set; } 
         public DateTime birthDate { get; set; }
-       
-        public override string ToString()
-        {
-            return $"  | Id: {id} | Nome: {name} | User: {user} |\n\n";
-
-        }
 
     }
 }

@@ -40,26 +40,17 @@ namespace AulaProjetoLetsCode2
                     break;
                 case 4:
                     Console.WriteLine("   LISTA DE USUÁRIOS CADASTRADOS  \n");
-                    foreach (var usuario in users.Users)
-                    {
-                        Console.WriteLine(usuario);
-                    }
+                    users.ListarUsers(users.Users);
                     GeneralMenuOption();
                     break;
                 case 5:
                     Console.WriteLine("   LISTA DE VENDEDORES CADASTRADOS  \n");
-                    foreach (var usuario in users.Sellers)
-                    {
-                        Console.WriteLine(usuario);
-                    }
+                    users.ListarUsers(users.Sellers);
                     GeneralMenuOption();
                     break;
                 case 6:
                     Console.WriteLine("   LISTA DE CLIENTES CADASTRADOS  \n");
-                    foreach (var usuario in users.Clients)
-                    {
-                        Console.WriteLine(usuario);
-                    }
+                    users.ListarUsers(users.Clients);
                     GeneralMenuOption();
                     break;
                 case 7:
